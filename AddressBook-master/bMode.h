@@ -1,6 +1,0 @@
-#ifndef BMODE_H_INCLUDED
-#define BMODE_H_INCLUDED
-
-
-
-#endif // BMODE_H_INCLUDED

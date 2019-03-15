@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -33,10 +35,9 @@ public:
     }
 
     void printInfo(){
-        cout << getName() << endl << getNumber();
+        cout << "Name:\t" << getName() << endl << "Number:\t" << getNumber() << endl << endl;
     }
 };
-
 
 void printIntruction(){
     cout << "Press 1 to save a new contact\n";
@@ -50,18 +51,29 @@ void printIntruction(){
     //define vector here
     vector<Info> allRecords;
 
+void loadToVector(){
+    ifstream file("data.txt");
+    string token;
+    string line;
+    if(file.is_open()){
+        while(!file.eof()){
+            getline(file, line);
+            vector<string> items;
+            stringstream ss(line);
+            while (getline(ss, token, '\t')) {
+                items.push_back(token);
+            }
+            Info newInfo = Info(items[0], items[1]);
+            newInfo.printInfo();
+        }
+    }
+}
+
+
 int main()
 {
     printIntruction();
 
-    Info temp;
-    temp.setName("Viet Anh");
-    temp.setNumber("0961 679 361");
-
-    //Open file
-//    ofstream file;
-//    file.open("data.txt");
-//    file << temp.getName() << "\t" << temp.getNumber();
     int op;
     while(true){
         cin >> op;
@@ -80,22 +92,16 @@ int main()
                 Info newContact(newName, newNumber);
                 allRecords.push_back(newContact);
                 break;
-            case 2:
-                cout << "Case 2" << endl;
-                break;
-            case 3:
-                break;
-            default:
-                cout << "Something went wrong" << endl;
-                break;
         }
     }
 
-    allRecords.push_back(temp);
+    cout << "Load to vector" << endl;
+    loadToVector();
 
-    for(int it = 0; it < allRecords.size(); ++it){
-        cout << allRecords[it].getName() << "\t" << allRecords[it].getNumber() << endl;
-    }
+
+//    for(int it = 0; it < allRecords.size(); ++it){
+//        cout << allRecords[it].getName() << "\t" << allRecords[it].getNumber() << endl;
+//    }
 
     return 0;
 }
