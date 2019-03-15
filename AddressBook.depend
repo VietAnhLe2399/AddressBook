@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1552402958 source:d:\ltnc\addressbook\amode.cpp
+	"aMode.h"
+
+1552402958 d:\ltnc\addressbook\amode.h
+
+1552402958 source:d:\ltnc\addressbook\bmode.cpp
+	"bMode.h"
+
+1552402958 d:\ltnc\addressbook\bmode.h
+
+1552403085 source:d:\ltnc\addressbook\main.cpp
+	<iostream>
+

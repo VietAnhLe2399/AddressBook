@@ -1,0 +1,6 @@
+#ifndef AMODE_H_INCLUDED
+#define AMODE_H_INCLUDED
+
+
+
+#endif // AMODE_H_INCLUDED
